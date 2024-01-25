@@ -1,0 +1,75 @@
+﻿@model List<Travel>
+@{
+    int count = 0;
+}
+
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div az class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Travel Table</h4>
+                        <a asp-action="Create" asp-controller="Travel" class="btn btn-success">Create</a>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            Image
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Description
+                                        </th>
+                                        <th>
+                                            Category
+                                        </th>
+                                        <th>
+                                            Settings
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Travel travel in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            
+                                            <td>
+                                                @count
+                                            </td>
+                                            <td>
+                                                <img src="~/assets/imgs/@travel.Image" />
+                                            </td>
+                                            <td>
+                                                @travel.Name
+                                            </td>
+                                            <td>
+                                                @travel.Description
+                                            </td>
+                                            <td>
+                                                @travel.Category.Name
+                                            </td>
+                                            <td>
+                                                <a asp-action="Update" asp-controller="Travel" asp-route-id="@travel.Id" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                                                <a asp-action="Delete" asp-controller="Travel" asp-route-id="@travel.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@model List<Category>
+
+@{
+    int count = 0;
+}
+
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div az class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Category Table</h4>
+                        <a asp-action="Create" asp-controller="Category" class="btn btn-success">Create</a>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Settings
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Category category in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>
+                                                @count
+                                            </td>
+                                            <td>
+                                                @category.Name
+                                            </td>
+                                            <td>
+                                                <a asp-action="Update" asp-controller="category" asp-route-id="@category.Id" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                                                <a asp-action="Delete" asp-controller="category" asp-route-id="@category.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

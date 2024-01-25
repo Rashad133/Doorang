@@ -1,0 +1,45 @@
+﻿@model RegisterVM
+
+<div class="content-wrapper">
+    <div class="row">
+        <div az class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Register</h4>
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <form class="forms-sample" method="post">
+                        <div class="form-group">
+                            <label asp-for="Name">Name</label>
+                            <input asp-for="Name" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Surname">Surname</label>
+                            <input asp-for="Surname" class="form-control" placeholder="Surname">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Username">Username</label>
+                            <input asp-for="Username" class="form-control" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email">Email</label>
+                            <input asp-for="Email" class="form-control" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password">Password</label>
+                            <input asp-for="Password" class="form-control" placeholder="password">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ConfirmPassword">Confirm Password</label>
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="password">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        <a asp-action="Index" asp-controller="Home" asp-area="Admin" class="btn btn-light">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
